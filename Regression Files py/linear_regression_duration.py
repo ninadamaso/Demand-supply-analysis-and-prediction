@@ -30,7 +30,7 @@ class Duration_Prediction():
                            })
 
         ## Extend Cluster to initial DF
-        pipe_duration = joblib.load('../linear_regression_duration.joblib')
+        pipe_duration = joblib.load('../linear_regression_demand.joblib')
         return pipe_duration.predict(df)[0]
 
     ## GetLanguage
@@ -50,6 +50,6 @@ class Duration_Prediction():
         return region_type[self.canton]
 
 if __name__ == "__main__":
-    print(Clustering("Key Account", 'Sushi', 'Zürich', "11.90", 6).predict())
-    new_bakery = Clustering("Key Account", 'Sushi', 'Zürich', "11.90", 6)
-    print(f'The predicted cluster is: {new_bakery.predict()}')
+    print(Duration_Prediction("Key Account", 'Sushi', 'Zürich', "11.90", 6).predict())
+    new_bakery = Duration_Prediction("Key Account", 'Sushi', 'Zürich', "11.90", 6)
+    print(f'The predicted demand is: {new_bakery.predict()}')
